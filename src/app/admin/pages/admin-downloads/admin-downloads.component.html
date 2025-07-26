@@ -5,7 +5,7 @@
 
 
 
-<div class="container-fluid">
+<div class="container-fluid p-0" style="overflow-x: hidden;">
     <div class="row">
         <div class="col-md-2">
             <app-admin-sidebar></app-admin-sidebar>
@@ -13,8 +13,40 @@
 
     <!-- remaining contents -->
 
-        <div class="col-md-10">
-            <p>admin-downloads works!</p>
+        <div class="col-md-10 ps-0">
+            
+
+            <div class="row bg-warning p-3">
+                <h1> <i class="fa-solid fa-download"></i>Downloads</h1>
+            </div>
+
+
+            <h1 class="text-center my-5">Download List</h1>
+
+
+            <table class="table table-bordered w-full">
+                <thead >
+                    <tr>
+                        <th class="bg-success text-light">SI</th>
+                        <th class="bg-success text-light">Recipe Id</th>
+                        <th class="bg-success text-light">Recipe Name</th>
+                        <th class="bg-success text-light">Recipe Cuisine</th>
+                        <th class="bg-success text-light">Count</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>89765432</td>
+                        <td>salad</td>
+                        <td>Italian</td>
+                        <td>1</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
         </div>
 
 

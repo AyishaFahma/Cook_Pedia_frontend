@@ -6,7 +6,7 @@
 
 
 
-<div class="container-fluid">
+<div class="container-fluid p-0" style="overflow-x: hidden;">
     <div class="row">
         <div class="col-md-2">
             <app-admin-sidebar></app-admin-sidebar>
@@ -14,8 +14,32 @@
 
     <!-- remaining contents -->
 
-        <div class="col-md-10">
-            <p>admin-users works!</p>
+        <div class="col-md-10 ps-0">
+            <div class="row bg-warning p-3">
+                <h1> <i class="fa-solid fa-users"></i>Users</h1>
+            </div>
+
+
+            <h1 class="text-center my-5">User List</h1>
+
+
+            <table class="table table-bordered w-full">
+                <thead >
+                    <tr>
+                        <th class="bg-success text-light">SI</th>
+                        <th class="bg-success text-light">Name</th>
+                        <th class="bg-success text-light">Email</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Neel</td>
+                        <td>neelgmaul.com</td>
+                    </tr>
+                </tbody>
+            </table>
 
         </div>
 

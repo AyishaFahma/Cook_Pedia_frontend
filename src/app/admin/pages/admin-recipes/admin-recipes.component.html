@@ -1,25 +1,167 @@
-
-
-
-
-
 <app-admin-header></app-admin-header>
 
 
 
-<div class="container-fluid">
+<div class="container-fluid p-0" style="overflow-x: hidden;">
     <div class="row">
         <div class="col-md-2">
             <app-admin-sidebar></app-admin-sidebar>
         </div>
 
-    <!-- remaining contents -->
+        <!-- remaining contents -->
 
-        <div class="col-md-10">
-            <p>admin-recipes works!</p>
+        <div class="col-md-10 ps-0">
+            <div class="row bg-warning p-3">
+                <h1> <i class="fa-solid fa-bowl-rice"></i>Recipes</h1>
+            </div>
+
+            <h1 class="text-center my-5">Recipe List</h1>
+
+            <!-- add recipe button -->
+            <div class="d-flex justify-content-between">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary">Add
+                    Recipe +</button>
+
+                <input type="text" placeholder="name" class="form-control w-25 me-5">
+            </div>
+
+
+            <div class="my-5 p-3">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="bg-success text-light text-center">Sl:No</th>
+                            <th class="bg-success text-light text-center">Name</th>
+                            <th class="bg-success text-light text-center">Image</th>
+                            <th class="bg-success text-light text-center">Cuisine</th>
+                            <th class="bg-success text-light text-center">...</th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Pizza</td>
+
+                            <td class="text-center">
+                                <img src="https://ooni.com/cdn/shop/articles/20220211142347-margherita-9920_ba86be55-674e-4f35-8094-2067ab41a671.jpg?v=1737104576"
+                                    alt="no image" style="width: 150px; height: 100px;">
+                            </td>
+
+                            <td>Italian</td>
+                            <td class="text-center">
+
+                                <button class="btn btn-outline-primary"><i class="fa-solid fa-pen"></i>
+                                </button>
+
+                                <button class="btn btn-outline-danger ms-3"><i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
 
         </div>
 
 
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade modal-lg" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-light">
+                <!-- header -->
+                <h5 class="modal-title fw-bold" id="exampleModalLabel">Recipe Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!-- modal body -->
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-6">
+
+                            <div class="mb-3">
+                                <input type="text" placeholder="Name of the Recipe" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="text" placeholder="Preperation Time" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="text" placeholder="Calories" class="form-control">
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mb-3">
+                                <input type="text" placeholder="Serving" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="text" placeholder="Cooking Time" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="text" placeholder="Rating" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- drop down remaining -->
+
+                    <div class="mb-3">
+                        <input type="text" placeholder="Mode of Cooking" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="text" placeholder="Meal Type" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="text" placeholder="Cuisine Type" class="form-control">
+                    </div>
+
+                    <div class="mb-3 d-flex">
+                        <input type="text" placeholder="Ingredients" class="form-control rounded-0">
+
+                        <button class="btn btn-success rounded-0">ADD</button>
+                    </div>
+
+                    <div class="mb-3 d-flex">
+                        <input type="text" placeholder="Instructions" class="form-control rounded-0">
+
+                        <button class="btn btn-success rounded-0">ADD</button>
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label for="" style="color: rgb(170, 167, 167);"> Upload Image</label>
+                        <input type="file" class="form-control">
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- footer -->
+            <div class="modal-footer" style="background-color: rgb(200, 197,197);">
+                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success">Save</button>
+            </div>
+
+        </div>
     </div>
 </div>
