@@ -12,20 +12,28 @@
             <h1 class="text-center my-5">Login</h1>
             <p class="text-center">More than 100+ Recipes around the world</p>
 
-            <form class="shadow p-5">
+            <form class="shadow p-5" [formGroup]="loginForm" (ngSubmit)="login()">
 
                   <h1 class="text-center mb-5"><i class="fa-solid fa-kitchen-set"></i> CookPedia</h1>
 
                   <div class="mb-3">
-                    <input type="text" placeholder="Email" class="form-control">
+                    <input type="text" formControlName="email" name="email" placeholder="Email" class="form-control">
+
+                    @if( loginForm.get("email").errors && loginForm.get("email").touched ){
+                        <span class="text-danger" style="font-size: 12px;">*Invalid Input</span>
+                    }
                   </div>
 
                   <div class="mb-3">
-                    <input type="password" placeholder="Password" class="form-control">
+                    <input type="password"  formControlName="password"  name="password" placeholder="Password" class="form-control">
+
+                    @if( loginForm.get("password").errors && loginForm.get("password").touched ){
+                        <span class="text-danger" style="font-size: 12px;">*Invalid Input</span>
+                    }
                   </div>
 
                   <div class="my-5">
-                    <button class="btn btn-success w-100">Login</button>
+                    <button type="submit" class="btn btn-success w-100">Login</button>
                   </div>
 
                   <span>New User? <a class="text-success"  routerLink="/register">Register</a></span>
