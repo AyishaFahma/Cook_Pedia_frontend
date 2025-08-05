@@ -11,15 +11,41 @@ export class ApiService {
   constructor(private http:HttpClient) { }
 
 
-  //register Api
-  registerApi(reqBody:any){
-    return this.http.post(`${this.serverUrl}/user-register` , reqBody)
-  }
+  //---------------------COMMON-------------------------------
 
   //login api
   loginApi(reqBody:any){
     return this.http.post(`${this.serverUrl}/login` , reqBody)
   }
+
+
+  //api to get home recipes
+  homeRecipesApi(){
+    return this.http.get(`${this.serverUrl}/home-recipes`)
+  }
+
+
+  //---------------------USER---------------------------------
+
+
+  //register Api
+  registerApi(reqBody:any){
+    return this.http.post(`${this.serverUrl}/user-register` , reqBody)
+  }
+
+
+  //api to get all recipes
+  allRecipesApi(){
+    return this.http.get(`${this.serverUrl}/all-recipes`)
+  }
+
+
+  //----------------------ADMIN-------------------------------
+
+
+  
+
+  
 
 
 }
