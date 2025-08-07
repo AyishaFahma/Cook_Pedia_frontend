@@ -10,4 +10,13 @@ import { RouterLink } from '@angular/router';
 })
 export class HeaderComponent {
 
+  isLogin:boolean = false
+
+
+  ngOnInit(){
+    if(sessionStorage.getItem("token")){
+      this.isLogin = true
+    }
+  }
+
 }

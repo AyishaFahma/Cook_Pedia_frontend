@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -25,6 +25,26 @@ export class ApiService {
   }
 
 
+  //headers
+  appendToken(){
+
+    //class ne base cheythanu so ceate instance for that
+
+    let headers = new HttpHeaders()
+
+
+    const token = sessionStorage.getItem("token")
+
+    if(token){
+      headers = headers.append("Authorization" , `Bearer ${token}`)
+    }
+
+    return {headers} // key:value here both are same so put one
+
+
+  }
+
+
   //---------------------USER---------------------------------
 
 
@@ -37,6 +57,18 @@ export class ApiService {
   //api to get all recipes
   allRecipesApi(){
     return this.http.get(`${this.serverUrl}/all-recipes`)
+  }
+
+
+  //api to view single recipe
+  viewRecipeApi(id:string){
+    return this.http.get(`${this.serverUrl}/view-recipes/${id}`)
+  }
+
+
+  //api to save recipe
+  saveRecipeApi(recipeId:string , reqBody:any){
+    return this.http.post(`${this.serverUrl}/add-savedRecipe/${recipeId}` , reqBody , this.appendToken())
   }
 
 

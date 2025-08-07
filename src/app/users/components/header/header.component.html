@@ -39,17 +39,23 @@
                         <i class="fa-solid fa-user"></i>
                         <span>Hi User</span>
                     </button>
+
                     <ul class="dropdown-menu">
 
-                        <li ><a routerLink="/login" class="dropdown-item">Login</a></li>
-
-                        <li><a routerLink="/register" class="dropdown-item">Register</a></li>
-
-                        <!-- <li ><a routerLink="/profile" class="dropdown-item">Profile</a></li>
+                        <!-- if sessionstorage has token ie. logined user based condition -->
+                        @if (isLogin) {
+                        <li><a routerLink="/profile" class="dropdown-item">Profile</a></li>
 
                         <li><a routerLink="/saved-recipes" class="dropdown-item">Saved Recipes</a></li>
 
-                        <li><a class="dropdown-item">Logout</a></li> -->
+                        <li><a class="dropdown-item">Logout</a></li>
+                        }
+
+                        @else {
+                        <li><a routerLink="/login" class="dropdown-item">Login</a></li>
+
+                        <li><a routerLink="/register" class="dropdown-item">Register</a></li>
+                        }
 
                     </ul>
                 </div>

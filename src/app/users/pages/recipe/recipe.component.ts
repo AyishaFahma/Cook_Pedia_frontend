@@ -2,15 +2,26 @@ import { Component } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { Router } from '@angular/router';
 import { ApiService } from '../../../services/api.service';
+import { DatePipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { SearchPipe } from '../../../pipes/search.pipe';
+import {NgxPaginationModule} from 'ngx-pagination';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-recipe',
   standalone: true,
-  imports: [HeaderComponent],
+  imports: [HeaderComponent , DatePipe , FormsModule , SearchPipe , NgxPaginationModule ],
   templateUrl: './recipe.component.html',
   styleUrl: './recipe.component.css'
 })
 export class RecipeComponent {
+  
+  //for pagination
+  p: number = 1;
+
+  // search recipe in input box
+  searchKey:string = ""
 
   allRecipes:any = []
   dummyRecipes:any = []
@@ -19,11 +30,21 @@ export class RecipeComponent {
 
   mealType:any = []
 
+
+  time:any = new Date()
+
+
+
+
   constructor(private router:Router , private api:ApiService){ }
 
 
   //content when page load
   ngOnInit(){
+
+    //to get the time for checking purpose
+    //console.log(this.time);
+    
     this.getAllRecipes()
   }
 
@@ -103,7 +124,22 @@ export class RecipeComponent {
 
 
   viewRecipe(id:any){
-    this.router.navigateByUrl(`/view/${id}`)
+
+    // only logined user is able to navigate to view a single recipe so token checking
+
+    if(sessionStorage.getItem("token")){
+
+      this.router.navigateByUrl(`/view/${id}`)
+    }
+    else{
+      Swal.fire( {
+        icon:'info',
+        title:'Oops' , 
+        text:'Please Login'
+      })
+      this.router.navigateByUrl('/login')
+    }
+    
   }
 
 }
